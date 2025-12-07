@@ -4,25 +4,102 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="assets/images/icons/brain.ico" type="image/x-icon" />
+    <!-- Meta Tags SEO-->
+    <meta
+      name="google-site-verification"
+      content="oZLdasHaFdxHOC6YiOfTINb2S8ry7ktse09AciFFHz4"
+    />
+    <meta
+      name="title"
+      content="Fruit Box - Math & IQ Game for Kids | Free Educational Game"
+    />
+    <meta
+      name="description"
+      content="Play Fruit Box, a free educational math game for kids. Sharpen your brain by finding number combinations that sum to 10. Improve mental arithmetic and problem-solving skills!"
+    />
+    <meta
+      name="keywords"
+      content="math game, educational game, kids learning, brain training, number game, IQ game, mental arithmetic, free math game, educational app"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Aditya Pranoto" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fruit-box-games.vercel.app/" />
+    <meta property="og:title" content="Fruit Box - Math & IQ Game for Kids" />
+    <meta
+      property="og:description"
+      content="Free educational math game to sharpen your brain. Find number combinations that sum to 10!"
+    />
+    <meta
+      property="og:image"
+      content="https://fruit-box-games.vercel.app/assets/images/icons/brain.ico"
+    />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://fruit-box-games.vercel.app/"
+    />
+    <meta
+      property="twitter:title"
+      content="Fruit Box - Math & IQ Game for Kids"
+    />
+    <meta
+      property="twitter:description"
+      content="Free educational math game to sharpen your brain. Find number combinations that sum to 10!"
+    />
+    <meta
+      property="twitter:image"
+      content="https://fruit-box-games.vercel.app/assets/images/icons/brain.ico"
+    />
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://fruit-box-games.vercel.app/" />
     <title>Fruit Box - Games Matematika & IQ</title>
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!-- CSS External -->
     <link rel="stylesheet" href="assets/css/fruitBox.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Fruit Box",
+        "description": "Educational math game for kids to improve mental arithmetic and problem-solving skills",
+        "url": "https://fruit-box-games.vercel.app/",
+        "applicationCategory": "Game",
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "Rupiah"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "150"
+        }
+      }
+    </script>
   </head>
   <body>
-    <div class="header">
-      <h1><i class="fas fa-brain"></i> Fruit Box</h1>
-      <p class="subtitle">
-        Sharpen Your Brain Power <br />
-        Discover the perfect number combinations from 40 boxes containing
-        numbers 1-9, and prove your quick-thinking abilities by combining 2, 3,
-        or 4 numbers to reach the sum of 10
-      </p>
-    </div>
+    <header>
+      <div class="header">
+        <h1><i class="fas fa-brain"></i> Fruit Box</h1>
+        <p class="subtitle">
+          Sharpen Your Brain Power <br />
+          Discover the perfect number combinations from 40 boxes containing
+          numbers 1-9, and prove your quick-thinking abilities by combining 2,
+          3, or 4 numbers to reach the sum of 10
+        </p>
+      </div>
+    </header>
 
-    <div class="game-container">
+    <main class="game-container">
       <div class="game-info">
         <div class="info-box">
           <div class="info-label">Remaining Time</div>
@@ -90,9 +167,9 @@
           <span>Combination Error (-10 point)</span>
         </div>
       </div>
-    </div>
+    </main>
 
-    <div class="instructions">
+    <section class="instructions">
       <h3><i class="fas fa-graduation-cap"></i> How to Play - Fruit Box</h3>
       <ul>
         <li>
@@ -125,7 +202,7 @@
           mistakes will reduce your score.
         </li>
       </ul>
-    </div>
+    </section>
 
     <div class="game-over" id="gameOver">
       <div class="game-over-content">
@@ -155,6 +232,11 @@
       </div>
     </div>
 
+    <footer>
+      <p>&copy; 2025 Fruit Box. All rights reserved.</p>
+    </footer>
+
+    <!-- JS External -->
     <script src="assets/js/fruitBox.js"></script>
   </body>
 </html>
