@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/icons/brain.ico" type="image/x-icon" />
+    <title>Fruit Box - Games Matematika & IQ</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/fruitBox.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1><i class="fas fa-brain"></i> Fruit Box</h1>
+      <p class="subtitle">
+        Sharpen Your Brain Power <br />
+        Discover the perfect number combinations from 40 boxes containing
+        numbers 1-9, and prove your quick-thinking abilities by combining 2, 3,
+        or 4 numbers to reach the sum of 10
+      </p>
+    </div>
+
+    <div class="game-container">
+      <div class="game-info">
+        <div class="info-box">
+          <div class="info-label">Remaining Time</div>
+          <div id="timer" class="info-value">03:00</div>
+        </div>
+        <div class="info-box">
+          <div class="info-label">Total Score</div>
+          <div id="score" class="info-value">0</div>
+        </div>
+        <div class="info-box">
+          <div class="info-label">Correct Combination</div>
+          <div id="combinations" class="info-value">0</div>
+        </div>
+        <div class="info-box">
+          <div class="info-label">Combination Error</div>
+          <div id="mistakes" class="info-value">0</div>
+        </div>
+      </div>
+
+      <div class="settings">
+        <button class="time-btn active" data-time="60">1 MINUTE</button>
+        <button class="time-btn" data-time="180">3 MINUTE</button>
+        <button class="time-btn" data-time="300">5 MINUTE</button>
+        <button id="startBtn" class="control-btn">
+          <i class="fas fa-play"></i> START THE GAME
+        </button>
+        <button id="resetBtn" class="control-btn" disabled>
+          <i class="fas fa-redo"></i> REPEAT THE GAME
+        </button>
+      </div>
+
+      <div class="hint-area">
+        <button id="hintBtn" class="hint-btn" disabled>
+          <i class="fas fa-lightbulb"></i> GET HINTS
+        </button>
+        <div class="hint-text" id="hintText">
+          Click the "Get Hints" button for help finding the combination
+        </div>
+      </div>
+
+      <div class="selected-numbers">
+        <div id="selectedDisplay">
+          Choose the numbers (2, 3, or 4) that when added together add up to 10.
+        </div>
+        <div class="total-sum" id="totalSum">Total: 0</div>
+      </div>
+
+      <div class="game-board" id="gameBoard"></div>
+
+      <div class="fruit-colors">
+        <div class="color-info">
+          <div class="color-box normal-color"></div>
+          <span>Numbers available</span>
+        </div>
+        <div class="color-info">
+          <div class="color-box selected-color"></div>
+          <span>Selected numbers</span>
+        </div>
+        <div class="color-info">
+          <div class="color-box matched-color"></div>
+          <span>Correct combination</span>
+        </div>
+        <div class="color-info">
+          <div class="color-box wrong-color"></div>
+          <span>Combination Error (-10 point)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="instructions">
+      <h3><i class="fas fa-graduation-cap"></i> How to Play - Fruit Box</h3>
+      <ul>
+        <li>
+          Choose <span class="highlight"> 2, 3, or 4</span> numbers that add up
+          to <span class="highlight">10</span> (examples: 7+2+1, 4+3+2+1, 5+5,
+          etc.)
+        </li>
+        <li>Available numbers are <span class="highlight">1-9</span> only</li>
+        <li>
+          If the combination is incorrect, he selected numbers will be reset and
+          <span class="warning">10 points will be deducted</span>
+        </li>
+        <li>
+          Each correct combination will award points based on the sum of the
+          digits:
+          <span class="highlight"
+            >10 points for 2 numbers, 15 for 3 numbers, 20 for 4 numbers</span
+          >
+        </li>
+        <li>
+          The system will always ensure there are possible combinations
+          available
+        </li>
+        <li>
+          Use the <span class="highlight">"Get Hints"</span> button if you are
+          having trouble finding a combination
+        </li>
+        <li>
+          <span class="warning">Be careful with mistakes!</span> Too many
+          mistakes will reduce your score.
+        </li>
+      </ul>
+    </div>
+
+    <div class="game-over" id="gameOver">
+      <div class="game-over-content">
+        <h2><i class="fas fa-trophy"></i>GAME OVER</h2>
+        <p>Your time is up! Here are the results of the game:</p>
+        <div class="final-score" id="finalScore">0</div>
+
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-value" id="finalCombinations">0</div>
+            <div class="stat-label">Combination</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="finalMistakes">0</div>
+            <div class="stat-label">Combination Error</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="finalMultiCombinations">0</div>
+            <div class="stat-label">Combination 3+</div>
+          </div>
+        </div>
+
+        <div class="iq-level" id="iqLevel">Your Level: Beginner</div>
+        <button class="restart-btn" id="restartBtn">
+          <i class="fas fa-redo"></i> PLAY AGAIN
+        </button>
+      </div>
+    </div>
+
+    <script src="assets/js/fruitBox.js"></script>
+  </body>
+</html>
