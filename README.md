@@ -1,44 +1,44 @@
 # Fruit Box
 ### Sharpen Your Brain Power with Number Combinations
 
-Fruit Box adalah sebuah game berbasis **HTML5, CSS, dan JavaScript** yang menguji kecepatan berpikir pemain dalam menemukan kombinasi angka yang menghasilkan total **10**. Game ini dilengkapi sistem skor, penalti kesalahan, pemilihan waktu, serta tampilan antarmuka yang colorful dan clean.
+Fruit Box is an engaging educational math game designed to enhance children's cognitive abilities and quick-thinking skills. Players are challenged to find number combinations from a 40-box grid (containing numbers 1-9) that sum up to 10.
 
 ---
 
-## ✨ Fitur Utama
+## ✨ Key Features
 
-- ** Pemilihan Waktu Bermain** (1 menit, 3 menit, 5 menit)
-- ** Membuat kombinasi angka** (2x, 3x, atau 4x) untuk mendapatkan total **10**
-- * *Sistem Poin Dinamis**
-  - Kombinasi **2 angka = +10 poin**
-  - Kombinasi **3 angka = +15 poin**
-  - Kombinasi **4 angka = +20 poin**
-- ** Pengurangan Poin** ketika kombinasi salah
-- ** Tombol Hints** untuk membantu mencari kombinasi yang benar
-- ** Gameplay cepat, adiktif, dan mudah dimainkan siapa saja
-
----
-
-## 🚀 Cara Bermain
-
-1. Pilih waktu bermain: **1, 3, atau 5 menit**  
-2. Klik tombol **Start The Game**  
-3. Klik buah/angka untuk membuat kombinasi yang totalnya harus **10**  
-4. Setiap kombinasi benar akan menambah poin  
-5. Kombinasi salah akan **mengurangi poin**  
-6. Kumpulkan skor tertinggi sebelum waktu habis!
+- **Play Time Selection** (1 minute, 3 minutes, 5 minutes)
+- **Make number combinations** (2x, 3x, or 4x) to get a total of **10**
+- **Dynamic Point System**
+- **2-number combination = +10 points**
+- **3-number combination = +15 points**
+- **4-number combination = +20 points**
+- **Point deduction** for incorrect combinations
+- **Hints button** to help find the correct combination
+- **Fast, addictive, and easy gameplay for anyone
 
 ---
 
-## 🛠 Teknologi yang Digunakan
+## 🚀 How to Play
 
-- **HTML5** – Struktur game  
-- **CSS3** – Tampilan modern dan colorful  
-- **JavaScript** – Logika permainan & sistem penilaian
+1. Select the playing time: **1, 3, or 5 minutes**
+2. Click the **Start The Game** button
+3. Click the fruits/numbers to create combinations that must total **10**
+4. Each correct combination will add points
+5. Incorrect combinations will **subtract points**
+6. Collect the highest score before time runs out!
 
 ---
 
-## 📁 Struktur Project
+## 🛠 Technologies Used
+
+- **HTML5** – Game structure
+- **CSS3** – Modern and colorful appearance
+- **JavaScript** – Game logic & scoring system
+
+---
+
+## 📁 Project Structure
 /FruitBox Games
 │── index.html
 │── assets
@@ -52,25 +52,26 @@ Fruit Box adalah sebuah game berbasis **HTML5, CSS, dan JavaScript** yang menguj
 
 ---
 
-## 💻 Cara Menjalankan Project di Lokal
+## 💻 How to Run the Project Locally
 
-1. Clone repository:
-   ```bash
-   git clone https://github.com/Adty19/fruit-box.git
-2. Masuk ke folder
-   cd fruit-box
-3. Buka file
-   index.html
-4. Game siap dimainkan di browser.
+1. Clone the repository:
+
+bash
+git clone https://github.com/Adty19/fruit-box.git
+2. Go to the folder
+cd fruit-box
+3. Open the file
+index.html
+4. The game is ready to play in the browser.
 
 ---
 
 ## 👤 Author
 Adty19
-Developer game Fruit Box.
+Fruit Box game developer.
 
 ---
 
-## ⭐ Jika kamu suka project ini
-Silakan ⭐ star repo-nya di GitHub! Itu sangat membantu pengembangan lebih lanjut.
+## ⭐ If you like this project, 
+please ⭐-star the repo on GitHub! It will really help further development.
 
