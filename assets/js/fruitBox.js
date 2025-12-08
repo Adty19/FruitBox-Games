@@ -285,7 +285,7 @@ function handleWrongCombination() {
   });
 
   // Subtract points
-  score = Math.max(0, score - 10);
+  score = score - 10;
   mistakes++;
   scoreDisplay.textContent = score;
   mistakesDisplay.textContent = mistakes;
@@ -298,18 +298,13 @@ function handleWrongCombination() {
     (total, id) => total + fruits[id].number,
     0
   );
+
   hintText.innerHTML = `Wrong combination! ${combinationStr} = ${sum} (-10 point)`;
   hintText.style.color = "#f44336";
 
   // Reset after delay
   setTimeout(() => {
-    currentSelected.forEach((id) => {
-      fruits[id].selected = false;
-      updateFruitBoxDisplay(id);
-    });
-
-    selectedNumbers = [];
-    updateSelectedDisplay();
+    replaceMatchedNumbers(currentSelected);
     isProcessingCombination = false;
   }, 1000);
 }
@@ -325,41 +320,53 @@ function calculatePoints(numCount) {
 
 // Function to replace the numbers that have been paired
 function replaceMatchedNumbers(matchedIds) {
-  // Save a reference to the DOM element before updating it
-  const fruitElements = {};
-  matchedIds.forEach((id) => {
-    const fruitBox = gameBoard.querySelector(`.fruit-box[data-id="${id}"]`);
-    if (fruitBox) {
-      fruitElements[id] = fruitBox;
-    }
-  });
-
   // Update fruit data
   matchedIds.forEach((id) => {
     fruits[id].number = getRandomNumber();
     fruits[id].icon = fruitIcons[Math.floor(Math.random() * fruitIcons.length)];
     fruits[id].selected = false;
     fruits[id].matched = false;
+  });
 
-    // Update existing DOM elements
-    if (fruitElements[id]) {
-      updateFruitBoxDisplay(id);
+  // Update all element DOM
+  setTimeout(() => {
+    matchedIds.forEach((id) => {
+      const fruitBox = gameBoard.querySelector(`.fruit-box[data-id="${id}"]`);
+      if (fruitBox) {
+        // Remove any classes that might obstruct clicks.
+        fruitBox.className = "fruit-box";
+        fruitBox.style.pointerEvents = "auto";
+        fruitBox.style.cursor = "pointer";
 
-      fruitElements[id].onclick = null;
-      fruitElements[id].addEventListener("click", () => handleFruitClick(id));
+        // Update Content
+        const iconElement = fruitBox.querySelector(".fruit-icon");
+        const numberElement = fruitBox.querySelector(".fruit-number");
+
+        if (iconElement) {
+          iconElement.textContent = fruits[id].icon;
+        }
+
+        if (numberElement) {
+          numberElement.textContent = fruits[id].number;
+        }
+
+        // Reset event listener
+        const newFruitBox = fruitBox.cloneNode(true);
+        fruitBox.parentNode.replaceChild(newFruitBox, fruitBox);
+
+        // Add event listener to new element
+        newFruitBox.addEventListener("click", () => handleFruitClick(id));
+      }
+    });
+
+    const currentNumbers = fruits.map((fruit) => fruit.number);
+    if (!ensureCombinationExists(currentNumbers)) {
+      fixNoCombinationSituation();
     }
-  });
 
-  const currentNumbers = fruits.map((fruit) => fruit.number);
-  if (!ensureCombinationExists(currentNumbers)) {
-    fixNoCombinationSituation();
-  }
-
-  selectedNumbers.forEach((id) => {
-    fruits[id].selected = false;
-  });
-  selectedNumbers = [];
-  updateSelectedDisplay();
+    selectedNumbers = [];
+    updateSelectedDisplay();
+  }, 50);
 }
 
 // Function to fix the situation there is no combination
@@ -383,16 +390,14 @@ function updateFruitBoxDisplay(id) {
 
   // Reset class
   fruitBox.className = "fruit-box";
-
   fruitBox.classList.remove("wrong");
+  fruitBox.classList.remove("matched");
 
-  // Add classes based on status
-  if (fruit.matched) {
-    fruitBox.classList.add("matched");
-  } else if (fruit.selected) {
+  if (fruit.selected) {
     fruitBox.classList.add("selected");
   }
 
+  // Update Content
   const iconElement = fruitBox.querySelector(".fruit-icon");
   const numberElement = fruitBox.querySelector(".fruit-number");
 
@@ -407,6 +412,7 @@ function updateFruitBoxDisplay(id) {
   fruitBox.style.pointerEvents = "auto";
   fruitBox.style.opacity = "1";
 
+  // Reset event listener
   fruitBox.onclick = null;
   fruitBox.addEventListener("click", () => handleFruitClick(id));
 }
@@ -457,47 +463,150 @@ function giveHint() {
     hintCombination = findCombination(availableNumbers, 10, 3);
   }
 
+  if (!hintCombination) {
+    hintCombination = findCombination(availableNumbers, 10, 4);
+  }
+
   if (hintCombination) {
     const combinationString = hintCombination
       .map((item) => item.number)
       .join(" + ");
     const count = hintCombination.length;
 
-    hintText.innerHTML = `Hint: Try a combination <span>${combinationString}</span> (${count} numbers)`;
-    hintText.style.color = "#8e2de2";
+    hintText.innerHTML = `Hint: Try combination ${combinationString}`;
+    hintText.style.color = "#4dffea";
 
+    // Give the recommended fruit box a light effect
     hintCombination.forEach((item) => {
       const fruitBox = gameBoard.querySelector(
         `.fruit-box[data-id="${item.id}"]`
       );
       if (fruitBox) {
-        fruitBox.style.animation = "pulse 1s infinite";
-        setTimeout(() => {
-          if (fruitBox) fruitBox.style.animation = "";
-        }, 3000);
+        fruitBox.classList.add("glow-effect");
+
+        fruitBox.style.transform = "scale(1.05)";
+        fruitBox.style.transition = "transform 0.3s ease";
+
+        if (!fruitBox.dataset.hintId) {
+          fruitBox.dataset.hintId = hintsUsed;
+        }
       }
     });
+
+    setTimeout(() => {
+      hintCombination.forEach((item) => {
+        const fruitBox = gameBoard.querySelector(
+          `.fruit-box[data-id="${item.id}"]`
+        );
+        if (fruitBox) {
+          fruitBox.classList.remove("glow-effect");
+          fruitBox.style.transform = "scale(1)";
+          fruitBox.style.boxShadow = "";
+        }
+      });
+
+      hintText.style.textShadow = "";
+      hintText.style.animation = "";
+      hintText.innerHTML =
+        'Click "Get Hint" for more help finding combinations';
+      hintText.style.color = "#a9b7c6";
+    }, 5000);
 
     hintsUsed++;
     hintBtn.textContent = `Hint (${3 - hintsUsed} available)`;
 
+    hintBtn.style.background =
+      "linear-gradient(135deg, #ff9800 0%, #ff5722 100%)";
+    hintBtn.innerHTML = `<i class="fas fa-lightbulb"></i> HINTS USED (${hintsUsed}/3)`;
+
+    setTimeout(() => {
+      hintBtn.style.background =
+        "linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%)";
+      hintBtn.innerHTML = `<i class="fas fa-lightbulb"></i> GET HINTS (${
+        3 - hintsUsed
+      } left)`;
+    }, 2000);
+
     if (hintsUsed >= 3) {
       hintBtn.disabled = true;
+      hintBtn.style.background = "linear-gradient(135deg, #666 0%, #444 100%)";
+      hintBtn.innerHTML = '<i class="fas fa-lightbulb"></i> NO HINTS LEFT';
     }
   } else {
+    // If no combination is found
     hintText.innerHTML =
-      "Look for another combination or choose different numbers!";
+      "No combinations found! Try selecting different numbers.";
     hintText.style.color = "#ff9800";
+
+    // Give effect to all selectable numbers
+    const availableFruits = fruits.filter(
+      (fruit) => !fruit.matched && !fruit.selected
+    );
+    availableFruits.forEach((fruit) => {
+      const fruitBox = gameBoard.querySelector(
+        `.fruit-box[data-id="${fruit.id}"]`
+      );
+      if (fruitBox) {
+        fruitBox.classList.add("glow-effect-wrong");
+        fruitBox.style.transform = "scale(1.02)";
+      }
+    });
+
+    setTimeout(() => {
+      availableFruits.forEach((fruit) => {
+        const fruitBox = gameBoard.querySelector(
+          `.fruit-box[data-id="${fruit.id}"]`
+        );
+        if (fruitBox) {
+          fruitBox.classList.remove("glow-effect-wrong");
+          fruitBox.style.transform = "scale(1)";
+        }
+      });
+
+      hintText.innerHTML = 'Click "Get Hints" for help finding the combination';
+      hintText.style.color = "#a9b7c6";
+    }, 3000);
   }
+}
+
+// Function to display hints notification
+function showHintNotification(message, type = "info") {
+  const notification = document.createElement("div");
+  notification.className = `hint-notification ${type}`;
+  notification.innerHTML = `
+    <i class="fas fa-lightbulb"></i>
+    <span>${message}</span>
+  `;
+
+  document.querySelector(".game-container").appendChild(notification);
+
+  setTimeout(() => {
+    notification.classList.add("show");
+  }, 10);
+
+  setTimeout(() => {
+    notification.classList.remove("show");
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.parentNode.removeChild(notification);
+      }
+    }, 300);
+  }, 3000);
 }
 
 // Function to search for combinations
 function findCombination(numbers, target, maxLength) {
+  // Cari mulai dari kombinasi terkecil (2 angka) sampai maxLength
   for (let length = 2; length <= maxLength; length++) {
     const combinations = getCombinations(numbers, length);
+
+    // Try all combination
     for (let combo of combinations) {
       const sum = combo.reduce((s, item) => s + item.number, 0);
-      if (sum === target) return combo;
+      if (sum === target) {
+        // Prioritize combinations with numbers that have never been seen before
+        return combo;
+      }
     }
   }
   return null;
@@ -588,17 +697,21 @@ function updateTimerDisplay() {
   }
 }
 
-// Function to end the game
+/// Function to end the game
 function endGame() {
   clearInterval(timer);
   gameActive = false;
 
   let iqLevel = "Beginner";
+
+  // Logic Score
   if (score >= 230) iqLevel = "Genius";
   else if (score >= 180) iqLevel = "Expert";
   else if (score >= 140) iqLevel = "Intermediate";
   else if (score >= 80) iqLevel = "Beginner";
-  else iqLevel = "Needs Practice";
+  else if (score >= 0) iqLevel = "Needs Practice";
+  else if (score >= -50) iqLevel = "Needs More Practice";
+  else iqLevel = "Keep Trying!";
 
   finalScoreDisplay.textContent = score;
   finalCombinationsDisplay.textContent = combinations;

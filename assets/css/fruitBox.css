@@ -343,6 +343,48 @@ h1 {
   font-weight: bold;
 }
 
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #4dffea, 0 0 10px #4dffea, 0 0 15px #4dffea,
+      0 0 20px #4dffea;
+  }
+  50% {
+    box-shadow: 0 0 10px #4dffea, 0 0 20px #4dffea, 0 0 30px #4dffea,
+      0 0 40px #4dffea;
+  }
+  100% {
+    box-shadow: 0 0 5px #4dffea, 0 0 10px #4dffea, 0 0 15px #4dffea,
+      0 0 20px #4dffea;
+  }
+}
+
+@keyframes glow-red {
+  0% {
+    box-shadow: 0 0 5px #ff4d8d, 0 0 10px #ff4d8d, 0 0 15px #ff4d8d,
+      0 0 20px #ff4d8d;
+  }
+  50% {
+    box-shadow: 0 0 10px #ff4d8d, 0 0 20px #ff4d8d, 0 0 30px #ff4d8d,
+      0 0 40px #ff4d8d;
+  }
+  100% {
+    box-shadow: 0 0 5px #ff4d8d, 0 0 10px #ff4d8d, 0 0 15px #ff4d8d,
+      0 0 20px #ff4d8d;
+  }
+}
+
+.glow-effect {
+  animation: glow 1s infinite alternate;
+  border-color: #4dffea !important;
+  z-index: 10;
+}
+
+.glow-effect-wrong {
+  animation: glow-red 1s infinite alternate;
+  border-color: #ff4d8d !important;
+  z-index: 10;
+}
+
 .instructions {
   background-color: rgba(0, 0, 0, 0.2);
   padding: 25px;
@@ -376,7 +418,7 @@ h1 {
 
 .instructions li:before {
   content: "▶";
-  color: #ff416c;
+  color: #a9b7c6;
   position: absolute;
   left: 0;
 }

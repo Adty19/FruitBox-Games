@@ -94,7 +94,7 @@
           Sharpen Your Brain Power <br />
           Discover the perfect number combinations from 40 boxes containing
           numbers 1-9, and prove your quick-thinking abilities by combining 2,
-          3, or 4 numbers to reach the sum of 10
+          3, or more numbers to reach the sum of 10
         </p>
       </div>
     </header>
@@ -167,70 +167,72 @@
           <span>Combination Error (-10 point)</span>
         </div>
       </div>
-    </main>
 
-    <section class="instructions">
-      <h3><i class="fas fa-graduation-cap"></i> How to Play - Fruit Box</h3>
-      <ul>
-        <li>
-          Choose <span class="highlight"> 2, 3, or 4</span> numbers that add up
-          to <span class="highlight">10</span> (examples: 7+2+1, 4+3+2+1, 5+5,
-          etc.)
-        </li>
-        <li>Available numbers are <span class="highlight">1-9</span> only</li>
-        <li>
-          If the combination is incorrect, he selected numbers will be reset and
-          <span class="warning">10 points will be deducted</span>
-        </li>
-        <li>
-          Each correct combination will award points based on the sum of the
-          digits:
-          <span class="highlight"
-            >10 points for 2 numbers, 15 for 3 numbers, 20 for 4 numbers</span
-          >
-        </li>
-        <li>
-          The system will always ensure there are possible combinations
-          available
-        </li>
-        <li>
-          Use the <span class="highlight">"Get Hints"</span> button if you are
-          having trouble finding a combination
-        </li>
-        <li>
-          <span class="warning">Be careful with mistakes!</span> Too many
-          mistakes will reduce your score.
-        </li>
-      </ul>
-    </section>
+      <section class="instructions">
+        <h3><i class="fas fa-graduation-cap"></i> How to Play - Fruit Box</h3>
+        <ul>
+          <li>
+            Choose <span class="highlight"> 2, 3, or more</span> numbers that
+            add up to <span class="highlight">10</span> (examples: 7+2+1,
+            4+3+2+1, 5+5, etc.)
+          </li>
+          <li>Available numbers are <span class="highlight">1-9</span> only</li>
+          <li>
+            If the combination is incorrect, he selected numbers will be reset
+            and
+            <span class="warning">10 points will be deducted</span>
+          </li>
+          <li>
+            Each correct combination will award points based on the sum of the
+            digits:
+            <span class="highlight"
+              >10 points for 2 numbers, 15 for 3 numbers, 20 for 4 numbers and
+              30 for 4+ numbers combination</span
+            >
+          </li>
+          <li>
+            The system will always ensure there are possible combinations
+            available
+          </li>
+          <li>
+            Use the <span class="highlight">"Get Hints"</span> button if you are
+            having trouble finding a combination
+          </li>
+          <li>
+            <span class="warning">Be careful with mistakes!</span> Too many
+            mistakes will result in a <span class="warning">minus score</span>
+          </li>
+        </ul>
+      </section>
 
-    <div class="game-over" id="gameOver">
-      <div class="game-over-content">
-        <h2><i class="fas fa-trophy"></i>GAME OVER</h2>
-        <p>Your time is up! Here are the results of the game:</p>
-        <div class="final-score" id="finalScore">0</div>
+      <div class="game-over" id="gameOver">
+        <div class="game-over-content">
+          <h2><i class="fas fa-trophy"></i> GAME OVER</h2>
+          <p>Your time is up! Here are the results of the game:</p>
+          <div class="final-score" id="finalScore">0</div>
 
-        <div class="stats">
-          <div class="stat-item">
-            <div class="stat-value" id="finalCombinations">0</div>
-            <div class="stat-label">Combination</div>
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-value" id="finalCombinations">0</div>
+              <div class="stat-label">Combination</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="finalMistakes">0</div>
+              <div class="stat-label">Combination Error</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="finalMultiCombinations">0</div>
+              <div class="stat-label">Combination 3+</div>
+            </div>
           </div>
-          <div class="stat-item">
-            <div class="stat-value" id="finalMistakes">0</div>
-            <div class="stat-label">Combination Error</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-value" id="finalMultiCombinations">0</div>
-            <div class="stat-label">Combination 3+</div>
-          </div>
+
+          <div class="iq-level" id="iqLevel">Your Level: Beginner</div>
+          <button class="restart-btn" id="restartBtn">
+            <i class="fas fa-redo"></i> PLAY AGAIN
+          </button>
         </div>
-
-        <div class="iq-level" id="iqLevel">Your Level: Beginner</div>
-        <button class="restart-btn" id="restartBtn">
-          <i class="fas fa-redo"></i> PLAY AGAIN
-        </button>
       </div>
-    </div>
+    </main>
 
     <footer>
       <p>&copy; 2025 Fruit Box. All rights reserved.</p>
