@@ -1,4 +1,5 @@
 # Fruit Box
+
 ### Sharpen Your Brain Power with Number Combinations
 
 Fruit Box is an engaging educational math game designed to enhance children's cognitive abilities and quick-thinking skills. Players are challenged to find number combinations from a 40-box grid (containing numbers 1-9) that sum up to 10.
@@ -8,14 +9,15 @@ Fruit Box is an engaging educational math game designed to enhance children's co
 ## ✨ Key Features
 
 - **Play Time Selection** (1 minute, 3 minutes, 5 minutes)
-- **Make number combinations** (2x, 3x, or 4x) to get a total of **10**
+- **Make number combinations** (2x, 3x, 4x or more) to get a total of **10**
 - **Dynamic Point System**
 - **2-number combination = +10 points**
 - **3-number combination = +15 points**
 - **4-number combination = +20 points**
+- **more combination = +30 points**
 - **Point deduction** for incorrect combinations
 - **Hints button** to help find the correct combination
-- **Fast, addictive, and easy gameplay for anyone
+- \*\*Fast, addictive, and easy gameplay for anyone
 
 ---
 
@@ -39,16 +41,17 @@ Fruit Box is an engaging educational math game designed to enhance children's co
 ---
 
 ## 📁 Project Structure
+
 /FruitBox Games
 │── index.html
 │── assets
-    │── css
-        │── fruitBox.css
-    │── js
-        │── fruitBox.js
-    │── images
-        │── icons
-            │── brain.ico
+│── css
+│── fruitBox.css
+│── js
+│── fruitBox.js
+│── images
+│── icons
+│── brain.ico
 
 ---
 
@@ -57,21 +60,19 @@ Fruit Box is an engaging educational math game designed to enhance children's co
 1. Clone the repository:
 
 bash
-git clone https://github.com/Adty19/fruit-box.git
-2. Go to the folder
-cd fruit-box
-3. Open the file
-index.html
-4. The game is ready to play in the browser.
+git clone https://github.com/Adty19/fruit-box.git 2. Go to the folder
+cd fruit-box 3. Open the file
+index.html 4. The game is ready to play in the browser.
 
 ---
 
 ## 👤 Author
+
 Adty19
-Fruit Box game developer.
+Fruit Box Games developer.
 
 ---
 
-## ⭐ If you like this project, 
-please ⭐-star the repo on GitHub! It will really help further development.
+## ⭐ If you like this project,
 
+Please ⭐-star the repo on GitHub! It will really help further development.
