@@ -43,7 +43,6 @@ Fruit Box is an engaging educational math game designed to enhance children's co
 ## 📁 Project Structure
 
 /FruitBox Games
-project/
 ├── assets/
 │ ├── css/
 │ └──fruitBox.css
