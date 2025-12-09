@@ -14,10 +14,10 @@ Fruit Box is an engaging educational math game designed to enhance children's co
 - **2-number combination = +10 points**
 - **3-number combination = +15 points**
 - **4-number combination = +20 points**
-- **more combination = +30 points**
+- **More combination = +30 points**
 - **Point deduction** for incorrect combinations
 - **Hints button** to help find the correct combination
-- \*\*Fast, addictive, and easy gameplay for anyone
+- Fast, addictive, and easy gameplay for anyone
 
 ---
 
@@ -43,26 +43,32 @@ Fruit Box is an engaging educational math game designed to enhance children's co
 ## 📁 Project Structure
 
 /FruitBox Games
-│── index.html
-│── assets
-│── css
-│── fruitBox.css
-│── js
-│── fruitBox.js
-│── images
-│── icons
-│── brain.ico
+project/
+├── assets/
+│ ├── css/
+│ └──fruitBox.css
+│ ├── js/
+│ └── fruitBox.js
+│ ├── images/
+│ ├── icons/
+│ └── brain.ico
+├── fruitBox.css
+├── sitemap.xml
+├── index.html
+└── README.md
 
 ---
 
 ## 💻 How to Run the Project Locally
 
 1. Clone the repository:
-
-bash
-git clone https://github.com/Adty19/fruit-box.git 2. Go to the folder
-cd fruit-box 3. Open the file
-index.html 4. The game is ready to play in the browser.
+   bash
+   git clone https://github.com/Adty19/fruit-box.git
+2. Go to the folder
+   cd fruit-box
+3. Open the file
+   index.html
+4. The game is ready to play in the browser.
 
 ---
 
@@ -75,4 +81,4 @@ Fruit Box Games developer.
 
 ## ⭐ If you like this project,
 
-Please ⭐-star the repo on GitHub! It will really help further development.
+Please ⭐star the repo on GitHub! It will really help further development.
