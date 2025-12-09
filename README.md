@@ -45,11 +45,11 @@ Fruit Box is an engaging educational math game designed to enhance children's co
 /FruitBox Games
 ├── assets/
 │ ├── css/
-│ └──fruitBox.css
+│ │ └── fruitBox.css
 │ ├── js/
-│ └── fruitBox.js
+│ │ └── fruitBox.js
 │ ├── images/
-│ ├── icons/
+│ └── icons/
 │ └── brain.ico
 ├── fruitBox.css
 ├── sitemap.xml
